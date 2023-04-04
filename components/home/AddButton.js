@@ -9,7 +9,7 @@ const AddButton = ({onClick}) => {
         h={'80px'}
         borderRadius={'50%'}
         position={'absolute'}
-        bottom={'5%'}
+        bottom={'10vh'}
         right={'5%'}
         bg={'brand.700'}
         icon={<VscEdit fontSize={'28px'}
