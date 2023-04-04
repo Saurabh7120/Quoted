@@ -11,7 +11,7 @@ export default async function handler(req,res) {
         if(!uid) return res.status(400)
 
         const snap = await getDoc(doc(db,"users",uid));
-        if(snap.exists) {
+        if(snap.exists()) {
             const user = snap.data();
             res.status(200).json(
             {
