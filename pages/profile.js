@@ -161,7 +161,7 @@ const Profile = () => {
                 overflow={'hidden'}
                 overflowY={'auto'}
                 bottom={0}
-                pb='30px'
+                pb='50px'
                 pt={'20px'}
             >
                 {
