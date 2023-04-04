@@ -54,12 +54,12 @@ const Home = () => {
     return (
         <Layout>
             <VStack
-                maxH={'100%'}
+                maxH={'98%'}
                 w={'100%'}
                 gap={'10px'}
                 px={'10px'}
                 pt={'100px'}
-                pb={'20px'}
+                pb={'50px'}
                 overflowY={'auto'}
             >
                 {
