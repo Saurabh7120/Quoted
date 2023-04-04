@@ -17,8 +17,9 @@ export default async function handler(req, res) {
       profilePhoto: "",
       created_on: Timestamp.fromDate(new Date())
     }
-    const collectionRef = collection(db, `users`)
-    await setDoc(doc(collectionRef,user.uid), user)
+    
+    const docRef = doc(db, "users",user.uid)
+    await setDoc(docRef, user)
   
     res.status(200).json(user)
   } catch (error) {
