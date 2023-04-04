@@ -22,7 +22,12 @@ const RegisterForm = ({setMode}) => {
                     try {
                         const {email,password,confirmPassword} = values;
                         if(password !== confirmPassword) {
-                            alert("Both passwords should match")
+                            toast({
+                                title:"Both passwords should match!",
+                                status:"warning",
+                                position:"bottom-left",
+                                variant:"subtle"
+                            });
                             return actions.setSubmitting(false)
                         }
                         await handleRegister(email,password)

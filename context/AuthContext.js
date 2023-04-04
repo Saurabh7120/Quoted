@@ -50,9 +50,6 @@ const AuthProvider = ({children}) => {
             await createUserWithEmailAndPassword(auth, email, password).then(
                 async (userCredential) => {
                     // Signed in 
-                    // const User = userCredential.user;
-                    // ...
-                    
                     toast({
                         title:"User registered successfully!",
                         status:"success",
