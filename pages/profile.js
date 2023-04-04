@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Input, VStack, useDisclosure, useToast } from '@chakra-ui/react';
+import { Avatar, Box, Button, Flex, Input, Text, VStack, useDisclosure, useToast } from '@chakra-ui/react';
 import Loading from '@component/components/common/Loading';
 import AddQuoteModal from '@component/components/home/AddQuoteModal';
 import Quote from '@component/components/home/Quote';
@@ -15,6 +15,7 @@ const Profile = () => {
     const [preview, setPreview] = useState(null);
     const [file,setFile] = useState(null);
     const [selectedQuote, setSelectedQuote] = useState()
+    const [gettingQuotes, setGettingQuotes] = useState();
 
     const {user,loading, setUser} = useContext(AuthContext);
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -29,11 +30,14 @@ const Profile = () => {
         if(!user ) return
         const getQuotes = async() => {
             try {
+                setGettingQuotes(true);
                 const quotes = await axios.get(`/api/getMyQuotes?uid=${user.uid}`);
                 const data = quotes.data;
                 setQuotes(data.docs);
+                setGettingQuotes(false);
             } catch (error) {
                 console.log(error)
+                setGettingQuotes(false);
             }
         }
         getQuotes()
@@ -92,7 +96,7 @@ const Profile = () => {
         })
     }
 
-    if(loading) return <Loading/>
+    if(loading || gettingQuotes) return <Loading/>
 
     return (
         <Layout>
@@ -150,6 +154,7 @@ const Profile = () => {
             </VStack>
             <VStack
                 maxH={'73%'}
+                h={'73%'}
                 w={'100%'}
                 gap={'10px'}
                 px={'10px'}
@@ -159,7 +164,10 @@ const Profile = () => {
                 pb='20px'
                 pt={'20px'}
             >
-                {quotes?.map(i => <Quote
+                {
+                quotes.length > 0 
+                ?
+                quotes?.map(i => <Quote
                     key={i.id}
                     q={i}
                     user={user?.uid}
@@ -173,7 +181,10 @@ const Profile = () => {
                         onEdit()
                     }}
                 />
-                )}
+                )
+                :
+                <Text my='auto' color={"gray.500"} textAlign={'center'} fontSize={'xl'} px='10vw'>You haven't quoted anything yet!</Text>
+                }
             </VStack>
             <DeleteQuoteModal
                 isOpen={isOpen}
