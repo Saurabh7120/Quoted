@@ -82,9 +82,9 @@ const AuthProvider = ({children}) => {
                 // Signed in 
                 const user = userCredential.user;
                 const result = await axios.get(`/api/getUser?uid=${user.uid}`)
-                setUser(result.data);
+                setUser(result.data.data);
                 toast({
-                    title:`Welcome ${result.data.displayName}!`,
+                    title:`Welcome ${result.data.data.displayName}!`,
                     status:"success",
                     position:"bottom-left",
                     variant:"subtle"
