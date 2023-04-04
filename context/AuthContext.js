@@ -55,6 +55,7 @@ const AuthProvider = ({children}) => {
                         position:"bottom-left",
                         variant:"subtle"
                     });
+                    router.push("/home")
                   }
             ).catch(e => {
                 console.log(e.message)
