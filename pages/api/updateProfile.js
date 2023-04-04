@@ -56,12 +56,11 @@ export default async function handler(req, res) {
                 return res.status(error['status'] ? error['status'] : 500)
               }
         }else{
-            url = fields.pic
 
             const {uid} = fields
 
             const docRef = doc(db, `users`,uid)
-            await updateDoc(docRef, {...fields,profilePhoto: url})
+            await updateDoc(docRef, {...fields})
             
             const updatedUserSnap = await getDoc(docRef);
 
