@@ -2,7 +2,7 @@ import { Box, CircularProgress, Text, VStack, useDisclosure } from '@chakra-ui/r
 import Loading from '@component/components/common/Loading';
 import AddButton from '@component/components/home/AddButton';
 import AddQuoteModal from '@component/components/home/AddQuoteModal';
-import Quote from '@component/components/home/quote';
+import Quote from '@component/components/home/Quote';
 import Layout from '@component/components/layout';
 import { AuthContext } from '@component/context/AuthContext';
 import axios from 'axios';
