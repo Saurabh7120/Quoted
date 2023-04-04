@@ -154,14 +154,14 @@ const Profile = () => {
             </VStack>
             <VStack
                 maxH={'73%'}
-                h={'73%'}
+                h={'71%'}
                 w={'100%'}
                 gap={'10px'}
                 px={'10px'}
                 overflow={'hidden'}
                 overflowY={'auto'}
                 bottom={0}
-                pb='20px'
+                pb='30px'
                 pt={'20px'}
             >
                 {
