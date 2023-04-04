@@ -54,12 +54,13 @@ const Home = () => {
     return (
         <Layout>
             <VStack
-                h={'100%'}
+                maxH={'100%'}
                 w={'100%'}
                 gap={'10px'}
                 px={'10px'}
                 pt={'100px'}
-                overflowY={'hidden'}
+                pb={'20px'}
+                overflowY={'auto'}
             >
                 {
                     gettingQuotes ?
@@ -70,13 +71,15 @@ const Home = () => {
                     quotes.length === 0 ?
                     <Text my='auto' color={"gray.500"} textAlign={'center'} fontSize={'xl'} px='10vw'>Noone has quoted yet! Come back later.</Text>
                     :
-                    quotes.map(i => <Quote
-                        key={i.id}
-                        q={i}
-                        like={() => like(i.id)}
-                        user={user?.uid}
-                    />
-                )
+                    <>
+                        {quotes.map(i => <Quote
+                            key={i.id}
+                            q={i}
+                            like={() => like(i.id)}
+                            user={user?.uid}
+                        />)}
+                    </>
+
                 }
 
             </VStack>
