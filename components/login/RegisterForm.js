@@ -71,7 +71,7 @@ const RegisterForm = ({setMode}) => {
                                 color={'blue.400'}
                                 onClick={() => setMode(0)}
                             >
-                                Already registered?
+                                Have been here before?
                             </Button>
                             <Button
                                 isDisabled={
