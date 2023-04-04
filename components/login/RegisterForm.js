@@ -1,4 +1,4 @@
-import { Box, Button, Container, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Text, useToast } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 import React,{useContext} from 'react';
 import CommonField from '../common/CommonField';
@@ -8,6 +8,8 @@ import { AuthContext } from '@component/context/AuthContext';
 const RegisterForm = ({setMode}) => {
 
     const {handleRegister} = useContext(AuthContext)
+
+    const toast = useToast();
 
     return (
         <>
