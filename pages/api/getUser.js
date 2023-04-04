@@ -11,8 +11,17 @@ export default async function handler(req,res) {
         if(!uid) return res.status(400)
 
         const snap = await getDoc(doc(db,"users",uid));
-        const user = snap.data();
-        res.status(200).json({...user,created_on: user.created_on.toDate()});
+        if(snap.exists) {
+            const user = snap.data();
+            res.status(200).json(
+            {
+                exists: true,
+                data: {...user,created_on: user.created_on.toDate()}
+            });
+        }else{
+            res.status(200).json({exists: false})
+        }
+        
     } catch (error) {
         console.error(error['error'] ? error['error'] : error);
         return res.status(error['status'] ? error['status'] : 500)

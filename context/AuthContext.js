@@ -20,9 +20,19 @@ const AuthProvider = ({children}) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
-              const uid = user.uid;
+              const {uid, email} = user.uid;
               const result = await axios.get(`/api/getUser?uid=${uid}`)
-              setUser(result.data);
+              const exists = result.data.exists
+              if(exists) {
+                setUser(result.data.data);
+              }else{
+                const result = await axios.post("/api/createUser",{
+                    uid: uid,
+                    email: email,
+                    quotes: []
+                })
+                setUser(result.data)
+              }
               setLoading(false);
               // ...
             } else {
@@ -40,15 +50,9 @@ const AuthProvider = ({children}) => {
             await createUserWithEmailAndPassword(auth, email, password).then(
                 async (userCredential) => {
                     // Signed in 
-                    const User = userCredential.user;
+                    // const User = userCredential.user;
                     // ...
-                    const result = await axios.post("/api/createUser",{
-                        uid: User.uid,
-                        email: User.email,
-                        quotes: []
-                    })
- 
-                    setUser(result.data)
+                    
                     toast({
                         title:"User registered successfully!",
                         status:"success",
