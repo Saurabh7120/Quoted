@@ -83,7 +83,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100%;
   scrollbar-width: none;
 }
@@ -91,6 +91,7 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #FAC213;
+  padding: 0 25vw!important;
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -113,5 +114,17 @@ a {
 @font-face {
   font-family: 'Cherry';
   src: url('/cherry.ttf') format('truetype');
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  body{
+    padding: 0 15vw!important;
+  }
+}
+
+@media (max-width: 700px) {
+  body{
+    padding: 0!important;
+  }
 }
 

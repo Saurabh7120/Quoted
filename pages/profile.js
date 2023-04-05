@@ -102,7 +102,7 @@ const Profile = () => {
         <Layout>
             <VStack 
                 w="100%"
-                pt="90px"
+                pt="40px"
                 px={'20px'}
                 pb='20px'
                 maxH={'24%'}
@@ -161,7 +161,7 @@ const Profile = () => {
                 overflow={'hidden'}
                 overflowY={'auto'}
                 bottom={0}
-                pb='50px'
+                pb='40px'
                 pt={'20px'}
             >
                 {

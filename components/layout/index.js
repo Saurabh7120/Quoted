@@ -15,7 +15,7 @@ const Layout = ({children}) => {
 
     return (
         <Box
-            w={'100vw'}
+            w={'100%'}
             h={'100vh'}
             bg={'brand.50'}
             position={'relative'}
@@ -27,7 +27,7 @@ const Layout = ({children}) => {
                 w={'100%'}
                 backgroundColor={'brand.700'}
                 color={'white'}
-                position={'fixed'}
+                position={'absolute'}
                 top={0}
                 zIndex={9}
             >
@@ -67,7 +67,10 @@ const Layout = ({children}) => {
             </HStack>
             <Box 
                 h={'100vh'}
-                w={'100vw'}
+                w={'100%'}
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
             >
                 {children}
             </Box>

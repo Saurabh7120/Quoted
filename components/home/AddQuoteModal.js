@@ -130,7 +130,16 @@ const AddQuoteModal = ({isOpen,onClose, addQuote, edit, q, updateQuote}) => {
       }
 
     return (
-        <Modal  isCentered isOpen={isOpen} onClose={() => onClose()}>
+        <Modal  
+            isCentered 
+            isOpen={isOpen} 
+            onClose={() => onClose()}
+            // styleConfig={{
+            //     position:"fixed",
+            //     top:"25vw !important",
+            //     left:"25vw!important"
+            // }}
+        >
         <ModalOverlay />
         <ModalContent 
             w={'90%'}

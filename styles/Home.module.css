@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem;
+  padding: 6rem 25vw;
   min-height: 100vh;
   background-color: #FAC213;
 }
@@ -176,6 +176,14 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+  .main{
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .content {
     padding: 4rem;
   }
@@ -255,6 +263,9 @@
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
+  }
+  .main{
+    padding: 6rem 15vw;
   }
 }
 
